@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+ <bean id="Circle" class="org.springpractice.model.Circle">
+<property name="name" value="Circle name"/>
+</bean>   
+
+
+<bean id="ShapeService" class="org.springpractice.service.ShapeService">
+<property name="circle" ref="Circle"/>
+<property name="triangle" ref="Triangle"/>
+</bean>
+
+
+<bean id="Triangle" class="org.springpractice.model.Triangle">
+<property name="name" value="Triangle name"/>
+</bean>
+
+<bean id="LoggingAdvice" class="org.springpractice.aspect.LoggingAdvice">
+
+</bean>
+
+<aop:config>
+<aop:aspect id="LoggingAdvice" ref="LoggingAdvice">
+
+<aop:around pointcut="execution(* get*() )" method="AroundAdvice"/>
+
+</aop:aspect>
+</aop:config>
+
+<context:annotation-config/>
+<context:component-scan base-package="org.springpractice.aspect;org.springpractice.model;org.springpractice.model.subpackage;org.springpractice.service"/>
+
+</beans>
+

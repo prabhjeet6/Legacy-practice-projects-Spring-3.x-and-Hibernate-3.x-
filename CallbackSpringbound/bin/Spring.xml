@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+<bean id="trngl" class="Triangle">
+<property name="point1" ref="Point0"/>
+<property name="point2" ref="Point1"/>
+<property name="point3" ref="Point2"/>
+</bean>
+
+<bean id="Point0" class="Point">
+<property name="x" value="0"/>
+<property name="y" value="1"/>
+</bean>
+
+<bean id="Point1" class="Point">
+<property name="x" value="2"/>
+<property name="y" value="0"/>
+</bean>
+
+<bean id="Point2" class="Point">
+<property name="x" value="2"/>
+<property name="y" value="8"/>
+</bean>
+
+</beans>

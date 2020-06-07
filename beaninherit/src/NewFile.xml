@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+<bean id="parent" class="Triangle" abstract="true" >
+<property name ="point1" ref="PointA"/>
+</bean>
+
+<bean id="triangle1" class="Triangle"  parent="parent">
+<property name ="point2" ref="PointB"/>
+<property name ="point3" ref="PointC"/>
+</bean>
+<bean id="triangle2" class="Triangle"  parent="parent">
+<property name ="point2" ref="PointB"/>
+<property name ="point3" ref="PointC"/>
+<property name ="point1" ref="PointD"/>
+</bean>
+<bean id="PointA" class="Point"  >
+<property name ="x" value="1"/>
+<property name ="y" value="4"/>
+</bean>
+<bean id="PointB" class="Point"  >
+<property name ="x" value="11"/>
+<property name ="y" value="42"/>
+</bean>
+<bean id="PointC" class="Point"  >
+<property name ="x" value="21"/>
+<property name ="y" value="14"/>
+</bean>
+<bean id="PointD" class="Point"  >
+<property name ="x" value="100"/>
+<property name ="y" value="69"/>
+</bean>
+
+
+</beans>
